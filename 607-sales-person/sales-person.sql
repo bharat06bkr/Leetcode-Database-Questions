@@ -1,0 +1,13 @@
+/* Write your PL/SQL query statement below */
+
+SELECT name 
+FROM SalesPerson 
+WHERE sales_id not in(
+    SELECT sales_id 
+    FROM Orders
+    WHERE com_id=(
+        SELECT com_id
+        FROM COMPANY
+        WHERE name='RED'
+    )
+);
